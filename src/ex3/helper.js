@@ -1,6 +1,7 @@
 import axios from 'axios'
 import fs from 'fs-extra'
 import chalk from 'chalk';
+import asciify from 'asciify-image'
 
 export function isListOfPokemons(item) {
     if (item.includes(",") && JSON.stringify(item.split(",")) === JSON.stringify(item.split(",").filter(item => !isNaN(item)))) {
@@ -31,6 +32,13 @@ export async function readFile() {
     } catch (error) {
         return error
     }
+}
+
+export async function pokemonToAscii(url) {
+    const options = { fit: 'none', width: 20, height: 20, color: true }
+    await asciify(url, options, (err, res) => {
+        console.log(err || res)
+    })
 }
 
 export async function writeToFile(item) {

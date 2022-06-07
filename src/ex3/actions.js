@@ -1,4 +1,4 @@
-import { getPokemon, isListOfPokemons, isPokemon, readFile, writeToFile, pokemonExistsInTodoList, overwriteFile } from './helper.js';
+import { getPokemon, isListOfPokemons, isPokemon, readFile, writeToFile, pokemonExistsInTodoList, overwriteFile, pokemonToAscii } from './helper.js';
 import chalk from 'chalk';
 
 export async function get() {
@@ -20,6 +20,7 @@ export async function add(item) {
                 console.log(chalk.red(`Wrong Pokemon number --> ${listOfPokemons[i]}`))
                 continue
             }
+            pokemonToAscii(pokemon.data.sprites.front_default)
             pokemon = pokemon.data.name
             let doesPokemonExists = await pokemonExistsInTodoList(pokemon)
             if (!doesPokemonExists) {
@@ -39,6 +40,7 @@ export async function add(item) {
             console.log(chalk.red("Wrong Pokemon number"))
             return
         }
+        pokemonToAscii(pokemon.data.sprites.front_default)
         pokemon = pokemon.data.name
         let doesPokemonExists = await pokemonExistsInTodoList(pokemon)
         if (!doesPokemonExists) {
