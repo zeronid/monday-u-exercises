@@ -1,5 +1,6 @@
 import axios from 'axios'
 import fs from 'fs-extra'
+import chalk from 'chalk';
 
 export function isListOfPokemons(item) {
     if (item.includes(",") && JSON.stringify(item.split(",")) === JSON.stringify(item.split(",").filter(item => !isNaN(item)))) {
@@ -37,7 +38,7 @@ export async function writeToFile(item) {
         let data = await readFile()
         data.push(item)
         await fs.writeFile("list.json", JSON.stringify(data))
-        return "Item has been added :)"
+        return chalk.green("Item has been added :)")
     } catch (error) {
         return error
     }
