@@ -9,6 +9,7 @@ export async function get() {
 }
 
 export async function add(item) {
+
     let response
 
     if (isListOfPokemons(item)) {
@@ -52,7 +53,9 @@ export async function add(item) {
     } else {
         response = await writeToFile(item)
     }
+
     console.log(response)
+    
 }
 
 export async function deleteItem(index) {
