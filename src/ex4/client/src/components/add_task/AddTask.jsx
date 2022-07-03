@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import ItemClient from '../../api/itemClient'
 import styles from './AddTask.module.css'
 import PropTypes from 'prop-types';
@@ -7,7 +7,7 @@ function AddTask({ flag, setFlag, setLoading }) {
 
     const [item, setItem] = useState('')
 
-    const addItem = async () => {
+    const addItem = useCallback(async () => {
         setLoading(true)
         const client = new ItemClient()
         if (item !== "") {
@@ -23,12 +23,12 @@ function AddTask({ flag, setFlag, setLoading }) {
         } else {
             alert("Please enter a valid task")
         }
-    }
+    })
 
     return (
         <div className={styles.add_task_container}>
             <input value={item} className={styles.add_task_input} onChange={(e) => setItem(e.currentTarget.value)}></input>
-            <button className={styles.add_task_button} onClick={() => addItem()}>+</button>
+            <button className={styles.add_task_button} onClick={addItem}>+</button>
         </div >
     )
 }

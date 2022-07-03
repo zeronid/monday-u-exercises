@@ -26,7 +26,7 @@ function TaskList({ flag, setFlag, setLoading }) {
         {items.map((item) => {
           return (
             <div key={uuidv4()}>
-              <Task setLoading={setLoading} setFlag={setFlag} item={item}></Task>
+              <Task setLoading={setLoading} setFlag={setFlag} item={item} />
               <hr ></hr>
             </div>
           )
