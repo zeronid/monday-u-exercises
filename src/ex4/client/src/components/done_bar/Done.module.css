@@ -1,0 +1,19 @@
+.done_container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 10px
+}
+
+.button {
+    width: 40%;
+    height: 50px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #87CEEB;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin-top: 10px;
+}

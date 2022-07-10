@@ -9,6 +9,8 @@ class ItemClient {
             const res = await fetch(this.url)
             if (res.status === 200) {
                 const items = await res.json()
+                //Save items to redux store
+
                 return items
             } else {
                 alert('Something went wrong :(')
