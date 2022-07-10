@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styles from './Task.module.css'
-import Trash from '../../icons/Trash'
 import ItemClient from '../../api/itemClient'
 import PropTypes from 'prop-types';
+import { FaTrash } from "react-icons/fa";
 
 function Task({ item, setFlag, setLoading }) {
 
@@ -45,7 +45,7 @@ function Task({ item, setFlag, setLoading }) {
             </input>
             <span className={styles.task_task_name}>{item.itemName}</span>
             <div className={styles.task_trash_icon} onClick={() => deleteItem(item.itemName)}>
-                <Trash />
+                <FaTrash />
             </div>
         </div>
     )
@@ -58,6 +58,8 @@ Task.propTypes = {
 }
 
 Task.defaultProps = {
+    setFlag: () => {},
+    setLoading: () => {},
     item: {}
 }
 
